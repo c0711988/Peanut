@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace ConsoleApp3
 {
@@ -16,9 +17,16 @@ namespace ConsoleApp3
             Console.ReadLine();
 
         }
-        static void Download();
-        
-        Network.Download()
+        static async void Download();
+
+        HttpClient client = new HttpClient();
+        var data = await client.GetStringAsync("http://ibm.com");
+        Console.Writeline(data);
+            // ToDo: Store eac line of the website into an entry
+            // in a list 
+            
+            List myList = new List();
+
     }
     class Network
 {
